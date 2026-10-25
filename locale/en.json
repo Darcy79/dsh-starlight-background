@@ -1,0 +1,10 @@
+{
+  "meta": {
+    "title": "Harmony Light",
+    "description": "An iOS switch, one unified black with a glass composer, and meteors that hold a fixed count by reasoning level and fly in and out along their own path."
+  },
+  "name": "Global light",
+  "hint": "Click or press Alt+L to toggle",
+  "onState": "On",
+  "offState": "Off"
+}

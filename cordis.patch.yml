@@ -1,0 +1,5 @@
+# Host-side presence only: the whole plugin lives in its browser half, which
+# registers one frame-wide entry in `shell.overlay`.
+- insert:
+    - id: dsh-harmony-light
+      name: dsh-harmony-light

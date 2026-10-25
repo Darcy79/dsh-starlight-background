@@ -1,0 +1,11 @@
+# 备份 / 临时文件
+*.bak
+client-b.js.bak
+
+# 设计稿目录（含本机会话名与工作区名，不随仓库发布）
+mockups/
+
+# deps & OS junk
+node_modules/
+.DS_Store
+Thumbs.db
