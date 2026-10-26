@@ -4,6 +4,10 @@
 
 ## 样图
 
+Harness 深色主题下的实际效果：插画铺满右侧，输入栏与强度胶囊浮在光场之上。
+
+![Harness 中的实际效果](media/in-harness.png)
+
 背景动效：插画随呼吸缓慢摆动，流星按推理等级沿路径飞入飞出。
 
 ![背景动效预览](media/starlight-motion.gif)
@@ -142,8 +146,6 @@ Escape 会把焦点还给齿轮。所有开关沿用原来的 胶囊样式。
 - 开关时滑块 `translateX(14px)`，轨道颜色 300ms 过渡，滑块 320ms 弹性曲线；
 - 开关置于齿轮弹窗内，`role="switch"` / `aria-checked` 保留状态，关联行标题与说明；
   总开关保留 Alt+L。
-
-参考：[Kuikly Switch 的 onColor/unOnColor 与玻璃开关](https://kuikly.tds.qq.com/API/components/switch.html#enableglasseffect)。
 
 ## 开关切换的光扫
 
