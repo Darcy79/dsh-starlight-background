@@ -1,9 +1,19 @@
 {
   "meta": {
-    "title": "Harmony Light",
-    "description": "An iOS switch, one unified black with a glass composer, and meteors that hold a fixed count by reasoning level and fly in and out along their own path."
+    "title": "Starlight",
+    "description": "An ocean illustration, glass composer and reasoning-linked meteors, with gear settings for master control, meteors, illustration visibility and animation."
   },
   "name": "Global light",
+  "settingsTitle": "Background settings",
+  "master": "Master switch",
+  "masterHint": "Control all background effects · Alt+L",
+  "meteors": "Meteors",
+  "meteorsHint": "Count follows reasoning effort",
+  "artwork": "Show illustration",
+  "artworkHint": "Show or hide the background character",
+  "animation": "Animate illustration",
+  "animationHint": "Character, sea breeze and water effects",
+  "showFirst": "Show the illustration first",
   "hint": "Click or press Alt+L to toggle",
   "onState": "On",
   "offState": "Off"

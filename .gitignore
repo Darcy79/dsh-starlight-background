@@ -9,3 +9,6 @@ mockups/
 node_modules/
 .DS_Store
 Thumbs.db
+
+# 本地动效验证输出
+artifacts/

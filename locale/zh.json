@@ -1,9 +1,19 @@
 {
   "meta": {
-    "title": "鸿蒙光感",
-    "description": "iOS 开关、统一的黑色玻璃对话框，以及随推理等级固定、沿路径飞入飞出的流星。每次点击控件还有触点微光。"
+    "title": "星轨光感",
+    "description": "海风插画、玻璃输入框与思考深度联动流星；齿轮设置提供总开关、流星开关，以及大肥鱼显示和动效的独立控制。"
   },
   "name": "全局光感",
+  "settingsTitle": "背景设置",
+  "master": "总开关",
+  "masterHint": "一键控制全部背景 · Alt+L",
+  "meteors": "流星",
+  "meteorsHint": "数量随思考深度联动",
+  "artwork": "大肥鱼显示",
+  "artworkHint": "显示或隐藏背景人物",
+  "animation": "大肥鱼动效",
+  "animationHint": "人物、海风与水花的全部动效",
+  "showFirst": "请先开启大肥鱼显示",
   "hint": "点击或按 Alt+L 开关",
   "onState": "已开启",
   "offState": "已关闭"

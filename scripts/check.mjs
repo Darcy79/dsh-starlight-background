@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Offline contract check for dsh-harmony-light.
+ * Offline contract check for dsh-starlight-background.
  *
  * Verifies the bundle envelope, the inlined stylesheet, JSON resources, and the
  * manifest's client/bundle declarations without needing a browser.
@@ -8,6 +8,7 @@
 import { readFile, stat } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { Script } from 'node:vm'
 
 const ROOT = dirname(dirname(fileURLToPath(import.meta.url)))
 const read = (name) => readFile(join(ROOT, name), 'utf8')
@@ -20,6 +21,16 @@ const pkg = JSON.parse(await read('package.json'))
 const client = await read('client.js')
 const host = await read('index.js')
 const patch = await read('cordis.patch.yml')
+new Script(client, { filename: 'client.js' })
+const artworkSource = await read('src/ocean-artwork.js')
+if (!client.includes(artworkSource.split('\n').map(line => line ? `    ${line}` : '').join('\n'))) {
+  fail('artwork source is stale; run npm run build:artwork')
+}
+const artworkImage = await readFile(join(ROOT, 'assets/deepseek-ocean.png'))
+if (!client.includes(`data:image/png;base64,${artworkImage.toString('base64')}`)) {
+  fail('artwork image is stale; run npm run build:artwork')
+}
+if (!pkg.files?.includes('assets') || !pkg.files?.includes('src')) fail('artwork package files')
 
 if (pkg.dsh?.bundle?.patch !== './cordis.patch.yml') fail('package.json dsh.bundle.patch')
 if (pkg.dsh?.client?.platform !== 'web') fail('package.json dsh.client.platform')
@@ -36,7 +47,7 @@ if (!client.includes("role: 'switch'")) fail('switch role')
 if (!client.includes('dhl-composer-sheen')) fail('composer light sheen')
 if (!client.includes('dhl-meteor')) fail('meteor layer')
 if (!client.includes('dhl-fixed-meteor')) fail('fixed meteor layer')
-if (!client.includes('dhl-ios-switch')) fail('iOS switch')
+if (!client.includes('dhl-pill-switch')) fail('pill switch')
 if (!client.includes('data-composer-card')) fail('composer glass anchor')
 if (!client.includes('conversation.input.left')) fail('chat idea observer')
 if (!client.includes('useSessionStatus')) fail('session status hook')
@@ -70,7 +81,7 @@ if (parens !== 0) fail(`CSS paren balance is ${parens}`)
 for (const locale of ['zh', 'en']) {
   const dict = JSON.parse(await read(`locale/${locale}.json`))
   if (!dict.meta?.title || !dict.meta?.description) fail(`locale/${locale}.json meta`)
-  for (const key of ['name', 'hint', 'onState', 'offState']) {
+  for (const key of ['name', 'hint', 'onState', 'offState', 'settingsTitle', 'master', 'masterHint', 'meteors', 'meteorsHint', 'artwork', 'artworkHint', 'animation', 'animationHint', 'showFirst']) {
     if (typeof dict[key] !== 'string') fail(`locale/${locale}.json ${key}`)
   }
 }

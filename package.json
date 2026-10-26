@@ -1,8 +1,8 @@
 {
-  "name": "dsh-harmony-light",
-  "version": "0.2.0",
+  "name": "dsh-starlight-background",
+  "version": "0.4.1",
   "private": true,
-  "description": "A quiet HarmonyOS 7 light field for the whole DeepSeek Harness frame: an iOS switch, one unified black with a blurred glass composer, and fixed reasoning-level meteors plus bright agent-idea meteors.",
+  "description": "A Starlight light field and animated ocean illustration with gear settings, a master switch, independent reasoning-linked meteors, and separate illustration visibility and animation controls.",
   "type": "module",
   "main": "index.js",
   "exports": {
@@ -18,6 +18,8 @@
     "cordis.patch.yml",
     "locale/*.json",
     "icon.svg",
+    "assets",
+    "src",
     "scripts",
     "README.md"
   ],
@@ -43,12 +45,15 @@
     "dsh",
     "dsh-plugin",
     "deepseek-harness",
-    "harmonyos",
+    "starlight",
     "light",
     "ambient"
   ],
   "scripts": {
-    "check": "node scripts/check.mjs"
+    "build:artwork": "node scripts/embed-artwork.mjs",
+    "preview": "node scripts/preview.mjs",
+    "check:artwork": "node scripts/check-artwork.mjs",
+    "check": "node scripts/check.mjs && node scripts/check-behavior.mjs"
   },
   "license": "MIT"
 }
